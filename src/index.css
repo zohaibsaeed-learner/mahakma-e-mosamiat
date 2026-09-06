@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap");
+
+@theme {
+  --color-night: #0b0e1a;
+  --color-surface: #141b2e;
+  --color-surface-2: #1c2540;
+  --color-emerald: #34d399;
+  --color-emerald-light: #6ee7b7;
+  --color-orange: #fb923c;
+  --color-orange-light: #fdba74;
+  --color-ink: #f2efe9;
+  --color-mist: #8b92a8;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--color-night);
+  color: var(--color-ink);
+  font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
+}
+
+.urdu {
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+.starfield {
+  background-image:
+    radial-gradient(
+      1px 1px at 20px 30px,
+      rgba(242, 239, 233, 0.5),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 90px 120px,
+      rgba(242, 239, 233, 0.4),
+      transparent
+    ),
+    radial-gradient(
+      1.5px 1.5px at 160px 60px,
+      rgba(242, 239, 233, 0.5),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 220px 180px,
+      rgba(242, 239, 233, 0.35),
+      transparent
+    ),
+    radial-gradient(
+      1px 1px at 280px 40px,
+      rgba(242, 239, 233, 0.45),
+      transparent
+    ),
+    radial-gradient(
+      1.5px 1.5px at 40px 200px,
+      rgba(242, 239, 233, 0.4),
+      transparent
+    );
+  background-repeat: repeat;
+  background-size: 300px 240px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-night);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-orange),
+    var(--color-emerald)
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--color-orange-light),
+    var(--color-emerald-light)
+  );
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-orange) var(--color-night);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  button,
+  li,
+  input {
+    cursor: none;
+  }
+
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    margin-left: -5px;
+    margin-top: -5px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-orange-light);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.05s linear;
+  }
+
+  .cursor-drop {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    margin-left: -2.5px;
+    margin-top: -2.5px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: drop-fade 0.7s ease-out forwards;
+  }
+}
+
+@keyframes drop-fade {
+  0% {
+    opacity: 0.8;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translateY(14px);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.type-caret {
+  animation: blink 1s step-end infinite;
+}
