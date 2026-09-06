@@ -20,8 +20,8 @@ export function Header() {
             : "border-transparent bg-transparent"
           }`}
       >
-        <Link to="/" className="truncate text-sm font-semibold tracking-wide text-ink sm:text-base">
-          Mahakma-e-Mosamiat
+        <Link to="/" className="truncate font-serif text-sm font-medium tracking-wide text-emerald-300 sm:text-base">
+          Mahakma e Mosamiat
         </Link>
 
         <div className="flex shrink-0 items-center gap-0.5 text-xs text-mist sm:gap-1 sm:text-sm">
