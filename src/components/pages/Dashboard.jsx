@@ -26,10 +26,10 @@ export function Dashboard() {
 
       <div className="relative mx-auto w-full max-w-4xl text-center">
 
-        <span dir="rtl" className="urdu mx-auto mb-6 inline-flex max-w-full items-center gap-2 rounded-full border border-emerald/30 bg-emerald/5 px-3 py-1.5 text-xs font-medium text-emerald-light sm:mb-8 sm:px-4 sm:text-sm">
+        <span dir="rtl" className="urdu mx-auto mb-6 inline-flex w-fit max-w-[92%] items-center justify-center gap-2 whitespace-nowrap rounded-full border border-emerald/30 bg-emerald/5 px-5 py-2.5 text-xs font-medium text-emerald-light sm:mb-8 sm:px-6 sm:py-3 sm:text-sm">
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-emerald" />
-          <span className="truncate">{typed}</span>
-          <span className="type-caret text-emerald-light">|</span>
+          <span>{typed}</span>
+          <span className="type-caret shrink-0 text-emerald-light">|</span>
         </span>
 
         <h1 dir="rtl" className="urdu text-3xl leading-[1.9] text-ink sm:text-5xl sm:leading-[2] lg:text-7xl">
