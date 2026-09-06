@@ -55,22 +55,22 @@ export function Weather() {
     >
       <div className="mx-auto w-full max-w-6xl">
 
-        <div className="mb-10 max-w-2xl">
+        <div className="mb-8 max-w-2xl sm:mb-10">
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange-light">
             Live Conditions
           </p>
-          <h1 className="text-3xl font-bold text-ink sm:text-4xl">
+          <h1 className="text-2xl font-bold text-ink sm:text-3xl lg:text-4xl">
             Search any city for weather
           </h1>
-          <p className="mt-3 text-mist">
+          <p className="mt-3 text-sm text-mist sm:text-base">
             Find current conditions and a clear forecast for the days ahead.
           </p>
         </div>
 
         <div className="relative w-full max-w-xl">
-          <FaMagnifyingGlass className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-mist" />
+          <FaMagnifyingGlass className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-mist sm:left-5" />
           <input
-            className="w-full rounded-2xl border border-white/10 bg-white/5 py-4 pl-12 pr-5 text-ink outline-none backdrop-blur-sm transition placeholder:text-mist focus:border-emerald/50 focus:ring-4 focus:ring-emerald/10"
+            className="w-full rounded-2xl border border-white/10 bg-white/5 py-3.5 pl-11 pr-4 text-sm text-ink outline-none backdrop-blur-sm transition placeholder:text-mist focus:border-emerald/50 focus:ring-4 focus:ring-emerald/10 sm:py-4 sm:pl-12 sm:pr-5 sm:text-base"
             type="text"
             placeholder="Search city..."
             value={query}
@@ -78,13 +78,13 @@ export function Weather() {
           />
 
           {query && (
-            <div className="absolute inset-x-0 top-full z-20 mt-3 max-h-80 overflow-y-auto rounded-2xl border border-white/10 bg-night/95 shadow-2xl shadow-black/50 backdrop-blur-xl">
+            <div className="absolute inset-x-0 top-full z-20 mt-3 max-h-72 overflow-y-auto rounded-2xl border border-white/10 bg-night/95 shadow-2xl shadow-black/50 backdrop-blur-xl sm:max-h-80">
               <ul>
                 {filteredCity.length > 0 ? (
                   filteredCity.map((city) => (
                     <li
                       key={city.id}
-                      className="cursor-pointer border-b border-white/5 px-5 py-3.5 text-sm text-ink/90 transition last:border-0 hover:bg-emerald/10 hover:text-emerald-light"
+                      className="cursor-pointer truncate border-b border-white/5 px-4 py-3 text-sm text-ink/90 transition last:border-0 hover:bg-emerald/10 hover:text-emerald-light sm:px-5 sm:py-3.5"
                       onClick={() => {
                         setSelectedCity(city);
                         setQuery("");
@@ -94,7 +94,7 @@ export function Weather() {
                     </li>
                   ))
                 ) : (
-                  <li className="px-5 py-4 text-sm text-mist">No city found.</li>
+                  <li className="px-4 py-4 text-sm text-mist sm:px-5">No city found.</li>
                 )}
               </ul>
             </div>
@@ -102,13 +102,13 @@ export function Weather() {
         </div>
 
         {error && (
-          <p className="mt-8 rounded-2xl border border-red-400/20 bg-red-400/5 px-5 py-4 text-sm font-medium text-red-300">
+          <p className="mt-8 rounded-2xl border border-red-400/20 bg-red-400/5 px-4 py-3.5 text-sm font-medium text-red-300 sm:px-5 sm:py-4">
             {error}
           </p>
         )}
 
         {selectedCity && !error && (
-          <div className="mt-12 space-y-12">
+          <div className="mt-10 space-y-10 sm:mt-12 sm:space-y-12">
             <CurrentWeather selectedCity={selectedCity} weatherData={weatherData} />
             <HourlyForecast forecast={forecast} />
             <DailyForecast forecast={forecast} />
@@ -116,7 +116,7 @@ export function Weather() {
             <Link
               to="/weather/details"
               state={{ selectedCity, weatherData, forecast }}
-              className="group inline-flex items-center gap-2 rounded-full bg-emerald px-6 py-3.5 text-sm font-bold text-night transition hover:bg-emerald-light"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-emerald px-6 py-3.5 text-sm font-bold text-night transition hover:bg-emerald-light sm:w-auto"
             >
               More Details
               <FaArrowRight className="transition group-hover:translate-x-1" />

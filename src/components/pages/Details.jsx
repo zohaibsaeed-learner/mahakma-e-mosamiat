@@ -35,19 +35,19 @@ export function Details() {
       id="details"
       className="min-h-screen bg-night px-4 pb-20 pt-16 sm:px-6 lg:px-8"
     >
-      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[2fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-6 sm:gap-8 lg:grid-cols-[2fr_1fr]">
 
         {hasDetails && (
-          <article className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange-light">
+          <article className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6 sm:rounded-[2rem] sm:p-8 md:p-10">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-orange-light sm:tracking-[0.3em]">
               Weather Information
             </p>
 
-            <h1 className="mb-10 text-3xl font-bold text-ink sm:text-4xl">
+            <h1 className="mb-8 truncate text-2xl font-bold text-ink sm:mb-10 sm:text-3xl lg:text-4xl">
               {weatherData.name}
             </h1>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
               <DetailCard title="Feels Like" value={`${weatherData.main.feels_like.toFixed(1)}°C`} />
               <DetailCard title="Humidity" value={`${weatherData.main.humidity}%`} />
               <DetailCard title="Wind Speed" value={`${weatherData.wind.speed} m/s`} />
@@ -62,19 +62,19 @@ export function Details() {
         )}
 
         {!hasDetails && (
-          <article className="flex min-h-64 items-center justify-center rounded-[2rem] border border-white/10 bg-white/[0.03] p-10 text-center">
+          <article className="flex min-h-56 items-center justify-center rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-8 text-center sm:min-h-64 sm:rounded-[2rem] sm:p-10">
             <div>
-              <p className="text-xl font-semibold text-ink/80">No city selected</p>
-              <p className="mt-2 text-mist">Search for a city to view its weather details.</p>
+              <p className="text-lg font-semibold text-ink/80 sm:text-xl">No city selected</p>
+              <p className="mt-2 text-sm text-mist sm:text-base">Search for a city to view its weather details.</p>
             </div>
           </article>
         )}
 
-        <aside className="h-fit rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 sm:p-10">
-          <h2 className="mb-6 text-2xl font-bold text-emerald-light">Saved Locations</h2>
+        <aside className="h-fit rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6 sm:rounded-[2rem] sm:p-8 md:p-10">
+          <h2 className="mb-5 text-xl font-bold text-emerald-light sm:mb-6 sm:text-2xl">Saved Locations</h2>
 
           {savedLocations.length === 0 ? (
-            <p className="text-mist">No saved locations yet.</p>
+            <p className="text-sm text-mist sm:text-base">No saved locations yet.</p>
           ) : (
             <div className="space-y-3">
               {savedLocations.map((city) => (
@@ -82,10 +82,10 @@ export function Details() {
                   key={city.id}
                   to="/weather"
                   state={{ selectedCity: city }}
-                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-3.5 font-semibold text-ink/90 transition hover:border-emerald/40 hover:bg-emerald/10 hover:text-emerald-light"
+                  className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-ink/90 transition hover:border-emerald/40 hover:bg-emerald/10 hover:text-emerald-light sm:px-5 sm:py-3.5 sm:text-base"
                 >
-                  {city.name}
-                  <FaBookmark className="text-xs opacity-60" />
+                  <span className="truncate">{city.name}</span>
+                  <FaBookmark className="ml-2 shrink-0 text-xs opacity-60" />
                 </Link>
               ))}
             </div>
@@ -106,9 +106,9 @@ export function Details() {
 
 function DetailCard({ title, value }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-emerald/30 hover:bg-white/[0.05]">
-      <h2 className="text-xs font-semibold uppercase tracking-wider text-mist">{title}</h2>
-      <p className="mt-2 text-xl font-bold text-ink">{value}</p>
+    <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 transition hover:border-emerald/30 hover:bg-white/[0.05] sm:p-5">
+      <h2 className="text-[10px] font-semibold uppercase tracking-wider text-mist sm:text-xs">{title}</h2>
+      <p className="mt-1.5 truncate text-lg font-bold text-ink sm:mt-2 sm:text-xl">{value}</p>
     </div>
   );
 }

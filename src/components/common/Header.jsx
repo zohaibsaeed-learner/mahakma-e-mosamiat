@@ -1,4 +1,3 @@
-// components/common/Header.jsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -14,26 +13,26 @@ export function Header() {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 flex justify-center px-4 pt-4">
+    <div className="sticky top-0 z-50 flex justify-center px-3 pt-3 sm:px-4 sm:pt-4">
       <nav
-        className={`flex w-full max-w-3xl items-center justify-between gap-4 rounded-full border px-6 py-3 transition-all duration-300 ${isScrolled
+        className={`flex w-full max-w-3xl items-center justify-between gap-2 rounded-full border px-4 py-2.5 transition-all duration-300 sm:gap-4 sm:px-6 sm:py-3 ${isScrolled
             ? "border-emerald/15 bg-night/80 shadow-lg shadow-black/30 backdrop-blur-xl"
             : "border-transparent bg-transparent"
           }`}
       >
-        <Link to="/" className="font-serif text-base font-medium tracking-wide text-emerald-300">
-          Mahakma e Mosamiat
+        <Link to="/" className="truncate text-sm font-semibold tracking-wide text-ink sm:text-base">
+          Mahakma-e-Mosamiat
         </Link>
 
-        <div className="flex items-center gap-1 text-sm text-mist">
-          <Link to="/" className="rounded-full px-3 py-1.5 transition hover:bg-emerald/10 hover:text-emerald-light">
+        <div className="flex shrink-0 items-center gap-0.5 text-xs text-mist sm:gap-1 sm:text-sm">
+          <Link to="/" className="rounded-full px-2.5 py-1.5 transition hover:bg-emerald/10 hover:text-emerald-light sm:px-3">
             Dashboard
           </Link>
-          <Link to="/weather" className="rounded-full px-3 py-1.5 transition hover:bg-orange/10 hover:text-orange-light">
+          <Link to="/weather" className="rounded-full px-2.5 py-1.5 transition hover:bg-orange/10 hover:text-orange-light sm:px-3">
             Weather
           </Link>
-          <Link to="/weather/details" className="rounded-full px-3 py-1.5 transition hover:bg-emerald/10 hover:text-emerald-light">
-            Saved Locations
+          <Link to="/weather/details" className="rounded-full px-2.5 py-1.5 transition hover:bg-emerald/10 hover:text-emerald-light sm:px-3">
+            Saved
           </Link>
         </div>
       </nav>
